@@ -31,13 +31,31 @@ def posiciona_frota(f):
     tab=[]
 
     for i in range(10):
-        tab.append([0] * 10)
+        tab.append([0]*10)
 
     for n in f:
         for j in f[n]:
             for p in j:
                 l=p[0]
                 c=p[1]
-                tab[l][c] = 1
+                tab[l][c]=1
 
     return tab
+
+def afundados(f,tabuleiro):
+    q=0
+
+    for n in f:
+        for j in f[n]:
+            a=0
+            for p in j:
+                l=p[0]
+                c=p[1]
+
+                if tabuleiro[l][c] == 'X':
+                    a+=1
+
+            if a == len(j):
+                q+=1
+
+    return q
