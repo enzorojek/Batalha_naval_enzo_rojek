@@ -27,3 +27,17 @@ def faz_jogada(tabuleiro,l,c):
 
     return tabuleiro
 
+def posiciona_frota(f):
+    tab=[]
+
+    for i in range(10):
+        tab.append([0] * 10)
+
+    for n in f:
+        for j in f[n]:
+            for p in j:
+                l=p[0]
+                c=p[1]
+                tab[l][c] = 1
+
+    return tab
