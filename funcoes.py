@@ -59,3 +59,20 @@ def afundados(f,tabuleiro):
                 q+=1
 
     return q
+
+def posicao_valida(f,l,c,o,t):
+    p=define_posicoes(l,c,o,t)
+
+    for i in p:
+        l = i[0]
+        c = i[1]
+
+        if l<0 or l>=10 or c<0 or c>=10:
+            return False
+
+        for n in f:
+            for j in f[n]:
+                if i in j:
+                    return False
+
+    return True
