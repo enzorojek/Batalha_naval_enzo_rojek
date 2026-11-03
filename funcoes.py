@@ -18,3 +18,12 @@ def preenche_frota(f,n,l,c,o,t):
     f[n].append(p)
 
     return f
+
+def faz_jogada(tabuleiro,l,c):
+    if tabuleiro[l][c] == 1:
+        tabuleiro[l][c] = 'X'
+    elif tabuleiro[l][c] == 0:
+        tabuleiro[l][c] = '-'
+
+    return tabuleiro
+
