@@ -1,3 +1,4 @@
+import random as rd
 from funcoes import posicao_valida,preenche_frota,posiciona_frota,faz_jogada,afundados,monta_tabuleiros
 
 f={}
@@ -78,6 +79,21 @@ while m:
 
     tab2=faz_jogada(tab2,l,c)
 
-    if afundados(frota_oponente,tab2) == 10:
+    if afundados(frota_oponente, tab2) == 10:
         print('Parabéns! Você derrubou todos os navios do seu oponente!')
-        m=False
+        m = False
+    else:
+        l1 = rd.randint(0, 9)
+        c1 = rd.randint(0, 9)
+
+        while tab1[l1][c1] in ['X', '-']:
+            l1 = rd.randint(0, 9)
+            c1 = rd.randint(0, 9)
+
+        print(f'Seu oponente está atacando na linha {l1} e coluna {c1}')
+
+        tab1 = faz_jogada(tab1, l1, c1)
+
+        if afundados(f, tab1) == 10:
+            print('Xi! O oponente derrubou toda a sua frota =(')
+            m = False
