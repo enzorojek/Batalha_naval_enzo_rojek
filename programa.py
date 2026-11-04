@@ -1,4 +1,4 @@
-from funcoes import posicao_valida, preenche_frota
+from funcoes import posicao_valida,preenche_frota,posiciona_frota,faz_jogada,afundados,monta_tabuleiros
 
 f={}
 
@@ -27,4 +27,57 @@ for tipo,t,q in n:
         else:
             print('Esta posição não está válida!')
 
-print(f)
+frota_oponente = {
+    'porta-aviões': [
+        [[9, 1], [9, 2], [9, 3], [9, 4]]
+    ],
+    'navio-tanque': [
+        [[6, 0], [6, 1], [6, 2]],
+        [[4, 3], [5, 3], [6, 3]]
+    ],
+    'contratorpedeiro': [
+        [[1, 6], [1, 7]],
+        [[0, 5], [1, 5]],
+        [[3, 6], [3, 7]]
+    ],
+    'submarino': [
+        [[2, 7]],
+        [[0, 6]],
+        [[9, 7]],
+        [[7, 6]]
+    ]
+}
+
+tab1=posiciona_frota(f)
+tab2=posiciona_frota(frota_oponente)
+
+m=True
+
+while m:
+    print(monta_tabuleiros(tab1,tab2))
+
+    r=True
+
+    while r:
+        l=int(input('Linha: '))
+
+        while l<0 or l>9:
+            print('Linha inválida!')
+            l=int(input('Linha: '))
+
+        c=int(input('Coluna: '))
+
+        while c<0 or coluna>9:
+            print('Coluna inválida!')
+            c=int(input('Coluna: '))
+
+        if tabuleiro_oponente[l][c] in ['X', '-']:
+            print(f'A posição linha {l} e coluna {c} já foi informada anteriormente!')
+        else:
+            r=False
+
+    tab2=faz_jogada(tab2,l,c)
+
+    if afundados(frota_oponente,tab2) == 10:
+        print('Parabéns! Você derrubou todos os navios do seu oponente!')
+        m=False
