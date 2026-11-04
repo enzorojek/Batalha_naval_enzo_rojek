@@ -2,7 +2,7 @@ from funcoes import posicao_valida, preenche_frota
 
 f={}
 
-n=[['porta-aviões',4,1],['navio-tanque',3,1],['contratorpedeiro',2,1],['submarino',1,1]]
+n=[['porta-aviões',4,1],['navio-tanque',3,2],['contratorpedeiro',2,3],['submarino',1,4]]
 
 for tipo,t,q in n:
     p=0
