@@ -67,11 +67,11 @@ while m:
 
         c=int(input('Coluna: '))
 
-        while c<0 or coluna>9:
+        while c<0 or c>9:
             print('Coluna inválida!')
             c=int(input('Coluna: '))
 
-        if tabuleiro_oponente[l][c] in ['X', '-']:
+        if tab2[l][c] in ['X', '-']:
             print(f'A posição linha {l} e coluna {c} já foi informada anteriormente!')
         else:
             r=False
